@@ -1,5 +1,5 @@
 import { Service, ServiceBroker, Context } from 'moleculer';
-import { IMessage } from './@types/message'
+import { MessageType } from './@types/message.type'
 
 export default class UserService extends Service {
   public constructor(broker: ServiceBroker){
@@ -12,13 +12,13 @@ export default class UserService extends Service {
             method: 'GET',
             path: '/hello'
           },
-          async handler(): Promise<IMessage> {
+          async handler(): Promise<MessageType> {
             return this.ActionHello();
           }
         }
       },
       methods: {
-        ActionHello(): IMessage {
+        ActionHello(): MessageType {
           return { message: 'Bem vindo'}
         }
       }
